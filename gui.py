@@ -1,3 +1,4 @@
+import ctypes
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from core import missing_image_handles
@@ -28,7 +29,8 @@ def get_images():
 def start_gui():
     root = tk.Tk()
     root.iconbitmap("favicon.ico")
-    root.title("Missing Images")
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("variant.variants")
+    root.title("Variant Images")
     root.geometry("250x60")
     root.resizable(False, False)
     root.configure(bg="#E6E6E6")
