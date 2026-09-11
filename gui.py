@@ -1,7 +1,15 @@
+import os, sys
 import ctypes
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from core import missing_image_handles
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def get_images():
     # Select CSV
@@ -28,8 +36,8 @@ def get_images():
 
 def start_gui():
     root = tk.Tk()
-    root.iconbitmap("favicon.ico")
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("variant.variants")
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("variant.image.scanner")
+    root.iconbitmap(resource_path("favicon.ico"))
     root.title("Variant Images")
     root.geometry("250x60")
     root.resizable(False, False)
