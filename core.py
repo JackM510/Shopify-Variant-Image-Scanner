@@ -8,7 +8,7 @@ def missing_image_handles(path):
     # Confirm target cols exist
     required = ['handle', 'option1 name', 'variant image', 'variant sku', 'status']
     for col in required:
-        if col not in required:
+        if col not in file.columns:
             raise ValueError(f"CSV is missing '{col}' column")
 
     # Group rows by product handle
